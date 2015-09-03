@@ -124,6 +124,27 @@ public class Ville {
 				}
 			}
 		}
+		
+		if(s.equals("n")){
+			if(i==1){
+				if(or>=50){
+					or-=50;
+					nourriture+=100;
+				}
+				else{
+					System.out.println("Echange impossible");
+				}
+			}
+			if(i==2){
+				if(bois>=50){
+					bois-=50;
+					nourriture+=25;
+				}
+				else{
+					System.out.println("Echange impossible");
+				}
+			}
+		}
 	}
 	
 	public void calculJournee() {
@@ -152,6 +173,10 @@ public class Ville {
 	
 	public int getBois(){
 		return this.bois;
+	}
+	
+	public int getNourriture(){
+		return this.nourriture;
 	}
 	
 	public String toString() {

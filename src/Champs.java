@@ -6,7 +6,7 @@ public class Champs extends Batiment {
 	}
 	
 	public String toString(){
-		return "type: Champs\n ressources necessaires:\n\t ressources: 25, or: 50, habitants: 10 \n\t production journaliere:\n\t Nourriture: 50";
+		return "type: Champs\n ressources necessaires:\n\t bois: 25, or: 50, habitants: 10 \n\t production journaliere:\n\t Nourriture: 50";
 	}
 	
 	public void afficher(){

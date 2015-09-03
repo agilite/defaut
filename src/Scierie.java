@@ -6,7 +6,7 @@ public class Scierie extends Batiment {
 	}
 	
 	public String toString(){
-		return "type: Champs\n ressources necessaires:\n\t ressources: 50, or: 50 \n\t production journaliere:\n\t ressource: 100";
+		return "type: Champs\n ressources necessaires:\n\t bois: 50, or: 50 \n\t production journaliere:\n\t bois: 100";
 	}
 	
 	public void afficher(){
