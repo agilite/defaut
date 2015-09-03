@@ -22,30 +22,22 @@ public class Main {
 					   		   "Pour faire un echange appuyez sur w");
 			repUtilisateur= sc.nextLine();
 			if(repUtilisateur.equals("c")){
-				System.out.println("Pour construire une maison, appuyez sur m (demande: 25 bois, 25 or)\n" +
-						   		   "Pour construire une mine, appuyez sur o (demande: 100 bois, 50 or, 20 habitants)\n" +
-						   		   "Pour construire un entrepot, appuyez sur e (demande: 200 bois, 200 or, 5 habitants)\n" +
-						   		   "Pour construire une eglise, appuyez sur g (demande: 200 bois, 50 or, 10 habitants)\n" +
-						   		   "Pour construire un champ, appuyez sur p (demande: 25 bois, 50 or, 10 habitants)\n" +
-								   "Pour construire une scierie, appuyez sur s (demande: 50 bois, 50 or, 10 habitants)");
+				System.out.println("Pour construire une maison, appuyez sur m \t(demande: 25 bois, 25 or)(recolte journaliere: 10 or)\n" +
+						   		   "Pour construire une mine, appuyez sur o \t(demande: 100 bois, 50 or, 20 habitants)(recolte journaliere: 50 or)\n" +
+						   		   "Pour construire un entrepot, appuyez sur e \t(demande: 200 bois, 200 or, 5 habitants)(augmentation du stock: 200 nourritures)\n" +
+						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 10 habitants)(augmentation humeur: 100)\n" +
+						   		   "Pour construire un champ, appuyez sur p \t(demande: 25 bois, 50 or, 10 habitants)(recolte journaliere: 50 nourritures)\n" +
+								  "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants)(recolte journaliere: 100 bois)");
+				
 				repUtilisateur= sc.nextLine();
-				if(repUtilisateur.equals("m")){
-					jeu.addBatiment(TypeBatiment.MAISON);
-				}
-				if(repUtilisateur.equals("o")){
-					jeu.addBatiment(TypeBatiment.MINE);
-				}
-				if(repUtilisateur.equals("e")){
-					jeu.addBatiment(TypeBatiment.ENTREPOT);
-				}
-				if(repUtilisateur.equals("g")){
-					jeu.addBatiment(TypeBatiment.EGLISE);
-				}
-				if(repUtilisateur.equals("p")){
-					jeu.addBatiment(TypeBatiment.CHAMPS);
-				}
-				if(repUtilisateur.equals("s")){
-					jeu.addBatiment(TypeBatiment.SCIERIE);
+				
+				switch (repUtilisateur){
+				case "m" : jeu.addBatiment(TypeBatiment.MAISON); break;
+				case "o" : jeu.addBatiment(TypeBatiment.MINE); break;
+				case "e" : jeu.addBatiment(TypeBatiment.ENTREPOT); break;
+				case "g" : jeu.addBatiment(TypeBatiment.EGLISE); break;
+				case "p" : jeu.addBatiment(TypeBatiment.CHAMPS); break;
+				case "s" : jeu.addBatiment(TypeBatiment.SCIERIE); break;
 				}
 				System.out.println(jeu);
 			}
@@ -61,23 +53,13 @@ public class Main {
 						   		   "Pour detruire un champ, appuyez sur p\n" +
 								   "Pour detruire une scierie, appuyez sur s");
 				repUtilisateur= sc.nextLine();
-				if(repUtilisateur.equals("m")){
-					jeu.deleteBatiment(TypeBatiment.MAISON);
-				}
-				if(repUtilisateur.equals("o")){
-					jeu.deleteBatiment(TypeBatiment.MINE);
-				}
-				if(repUtilisateur.equals("e")){
-					jeu.deleteBatiment(TypeBatiment.ENTREPOT);
-				}
-				if(repUtilisateur.equals("g")){
-					jeu.deleteBatiment(TypeBatiment.EGLISE);
-				}
-				if(repUtilisateur.equals("p")){
-					jeu.deleteBatiment(TypeBatiment.CHAMPS);
-				}
-				if(repUtilisateur.equals("s")){
-					jeu.deleteBatiment(TypeBatiment.SCIERIE);
+				switch (repUtilisateur){
+				case "m" : jeu.deleteBatiment(TypeBatiment.MAISON); break;
+				case "o" : jeu.deleteBatiment(TypeBatiment.MINE); break;
+				case "e" : jeu.deleteBatiment(TypeBatiment.ENTREPOT); break;
+				case "g" : jeu.deleteBatiment(TypeBatiment.EGLISE); break;
+				case "p" : jeu.deleteBatiment(TypeBatiment.CHAMPS); break;
+				case "s" : jeu.deleteBatiment(TypeBatiment.SCIERIE); break;
 				}
 				System.out.println(jeu);
 			}
@@ -94,41 +76,44 @@ public class Main {
 					System.out.println("Pour echanger 50 bois contre 10 or, appuyez sur 1\n" +
 										"Pour echanger 500 bois contre 100 or, appuyez sur 2\n");
 					repUtilisateur= sc.nextLine();
-					if(repUtilisateur.equals("1")){
+					switch(repUtilisateur){
+					case "1" :
 						jeu.marcheAccepte("r",1);
-						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois");
-					}
-					if(repUtilisateur.equals("2")){
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;
+					case "2" :
 						jeu.marcheAccepte("r",2);
-						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois");
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;	
 					}
+					System.out.println(jeu);
 				}
 				if(repUtilisateur.equals("o")){
 					System.out.println("Pour echanger 10 or contre 50 bois, appuyez sur 1\n" +
 										"Pour echanger 100 or contre 500 bois, appuyez sur 2\n");
 					repUtilisateur= sc.nextLine();
-					if(repUtilisateur.equals("1")){
+					switch(repUtilisateur){
+					case "1" :
 						jeu.marcheAccepte("o",1);
-						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois");
-					}
-					if(repUtilisateur.equals("2")){
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;
+					case "2" :
 						jeu.marcheAccepte("o",2);
-						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois");
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;
 					}
+					System.out.println(jeu);
 				}
 
 				if(repUtilisateur.equals("n")){
 					System.out.println("Pour echanger 50 or contre 100 nourritures, appuyez sur 1\n" +
 										"Pour echanger 50 bois contre 25 nourritures, appuyez sur 2\n");
 					repUtilisateur= sc.nextLine();
-					if(repUtilisateur.equals("1")){
+					switch(repUtilisateur){
+					case "1" :
 						jeu.marcheAccepte("n",1);
-						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getNourriture()+" nourritures");
-					}
-					if(repUtilisateur.equals("2")){
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getNourriture()+" nourritures"); break;
+					case "2" :
 						jeu.marcheAccepte("n",2);
-						System.out.println("Il vous reste "+jeu.getBois()+" bois et "+jeu.getNourriture()+" nourritures");
+						System.out.println("Il vous reste "+jeu.getBois()+" bois et "+jeu.getNourriture()+" nourritures"); break;
 					}
+					System.out.println(jeu);
 				}
 			}
 		}
