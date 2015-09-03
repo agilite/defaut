@@ -1,5 +1,8 @@
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import sun.misc.Cleaner;
 
 
 public class Ville {
@@ -130,8 +133,16 @@ public class Ville {
 	}
 	
 	public boolean isOver() {
-		
-		return false;
+		boolean res=false;
+		if(humeurRequise-humeur>=100) {
+			res=true;
+			System.out.println("\n\n\t\t\tVOUS EST DESAVOUE !!! GAME OVER...");
+		}
+		if(nourriture<=-100) {
+			res=true;
+			System.out.println("\n\n\t\t\tC'EST LA FAMINE !!! GAME OVER...");
+		}
+		return res;
 	}
 	
 	
