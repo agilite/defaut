@@ -124,12 +124,15 @@ public class Ville {
 	}
 	
 	public void calculJournee() {
-		nourriture+=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*50;
+		nourriture+=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20;
 		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
 		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
 	}
 	
-	public boolean isOver() { return false; }
+	public boolean isOver() {
+		
+		return false;
+	}
 	
 	
 	public int getOr(){

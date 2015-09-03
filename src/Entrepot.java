@@ -2,7 +2,7 @@
 public class Entrepot extends Batiment{
 
 	public Entrepot(){
-		super(200,200,5,0,0,0,0);
+		super(200,200,6,0,0,0,0);
 	}
 	
 	public String toString(){
