@@ -2,6 +2,7 @@
 public abstract class Batiment {
 
 	protected static int locataires;
+	protected static int consommationNourri;
 	private static int ressourceNecessaire;
 	private static int orNecessaire;
 	private static int habNecessaire;
@@ -15,7 +16,7 @@ public abstract class Batiment {
 		orNecessaire=or;
 		habNecessaire=hab;
 		humeur=h;
-		recolteOr= rOr;
+		recolteOr=rOr;
 		recolteNourri=rNourri;
 	}
 	
@@ -51,7 +52,7 @@ public abstract class Batiment {
 		return locataires;
 	}
 
-	public static int getRecolteRessource() {
+	public static int getRecolteBois() {
 		return recolteRessource;
 	}
 }

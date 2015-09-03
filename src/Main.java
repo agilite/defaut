@@ -47,6 +47,9 @@ public class Main {
 				}
 				System.out.println(jeu);
 			}
+			if(repUtilisateur.equals("j")){
+				
+			}
 		}
 		sc.close();
 	}
