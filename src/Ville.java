@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 
 public class Ville {
@@ -30,23 +31,46 @@ public class Ville {
 	}
 	
 	public void addBatiment(TypeBatiment type) {
-		if (type==TypeBatiment.CHAMPS) new Champs();
-		if (type==TypeBatiment.MAISON) {
-			new Maison();
-			habitants+=Batiment.getLocataires();
+		if(bois >= Batiment.getRessourceNecessaire() && or >= Batiment.getOrNecessaire() && habitantsDispo >= Batiment.getHabNecessaire()){
+			if (type==TypeBatiment.CHAMPS) new Champs();
+			if (type==TypeBatiment.MAISON) {
+				new Maison();
+				habitants+=Batiment.getLocataires();
+			}
+			if (type==TypeBatiment.EGLISE) {
+				new Eglise();
+				humeur+=Batiment.getHumeur();
+			}
+			if (type==TypeBatiment.ENTREPOT) {
+				new Entrepot();
+				stockNourriture+=200;
+			}
+			if (type==TypeBatiment.MINE) new Mine();
+			if (type==TypeBatiment.SCIERIE) new Scierie();
+	
+			habitantsDispo-=Batiment.getHabNecessaire();
+			bois-=Batiment.getRessourceNecessaire();
+			or-=Batiment.getOrNecessaire();
+			nombreBatiments.put(type, nombreBatiments.get(type)+1);
 		}
-		if (type==TypeBatiment.EGLISE) {
-			new Eglise();
-			humeur+=Batiment.getHumeur();
+		else{
+			System.out.println("Construction impossible");
 		}
-		if (type==TypeBatiment.ENTREPOT) new Entrepot();
-		if (type==TypeBatiment.MINE) new Mine();
-		if (type==TypeBatiment.SCIERIE) new Scierie();
-
-		habitantsDispo-=Batiment.getHabNecessaire();
-		bois-=Batiment.getRessourceNecessaire();
-		or-=Batiment.getOrNecessaire();
-		nombreBatiments.put(type, nombreBatiments.get(type)+1);
+	}
+	
+	public void deleteBatiment(TypeBatiment type){
+		if(type==TypeBatiment.MAISON){
+			habitants-=Batiment.getLocataires();
+		}
+		if(type==TypeBatiment.EGLISE){
+			humeur-=Batiment.getHumeur();
+		}
+		if(type==TypeBatiment.ENTREPOT){
+			stockNourriture-=200;
+		}
+		
+		habitantsDispo+=Batiment.getHabNecessaire();
+		nombreBatiments.put(type, nombreBatiments.get(type)-1);
 	}
 	
 	public boolean isOver() { return false; }
@@ -64,4 +88,7 @@ public class Ville {
 			   				   "Scierie(s) = " + nombreBatiments.get(TypeBatiment.SCIERIE) + "\n\t" +
 			   				   "Mine(s) = " + nombreBatiments.get(TypeBatiment.MINE);
 	}
+	
+	
 }
+
