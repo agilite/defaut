@@ -67,28 +67,14 @@ public class Main {
 				
 			}
 			if(repUtilisateur.equals("w")){
-				System.out.println("Pour echanger contre de l'or, appuyez sur r\n" +
-								   "Pour echanger contre du bois, appuyez sur o\n" +
+				System.out.println("Pour echanger contre de l'or, appuyez sur o\n" +
+								   "Pour echanger contre du bois, appuyez sur b\n" +
 								   "Pour echanger contre de la nourriture, appuyez sur n");
 				repUtilisateur= sc.nextLine();
 				
-				if(repUtilisateur.equals("r")){
+				if(repUtilisateur.equals("o")){
 					System.out.println("Pour echanger 50 bois contre 10 or, appuyez sur 1\n" +
 										"Pour echanger 500 bois contre 100 or, appuyez sur 2\n");
-					repUtilisateur= sc.nextLine();
-					switch(repUtilisateur){
-					case "1" :
-						jeu.marcheAccepte("r",1);
-						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;
-					case "2" :
-						jeu.marcheAccepte("r",2);
-						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;	
-					}
-					System.out.println(jeu);
-				}
-				if(repUtilisateur.equals("o")){
-					System.out.println("Pour echanger 10 or contre 50 bois, appuyez sur 1\n" +
-										"Pour echanger 100 or contre 500 bois, appuyez sur 2\n");
 					repUtilisateur= sc.nextLine();
 					switch(repUtilisateur){
 					case "1" :
@@ -96,6 +82,20 @@ public class Main {
 						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;
 					case "2" :
 						jeu.marcheAccepte("o",2);
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;	
+					}
+					System.out.println(jeu);
+				}
+				if(repUtilisateur.equals("b")){
+					System.out.println("Pour echanger 10 or contre 50 bois, appuyez sur 1\n" +
+										"Pour echanger 100 or contre 500 bois, appuyez sur 2\n");
+					repUtilisateur= sc.nextLine();
+					switch(repUtilisateur){
+					case "1" :
+						jeu.marcheAccepte("b",1);
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;
+					case "2" :
+						jeu.marcheAccepte("b",2);
 						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" bois"); break;
 					}
 					System.out.println(jeu);
