@@ -6,4 +6,7 @@ public abstract class Batiment {
 	public Batiment(String nom){
 		this.nom= nom;
 	}
+	
+	public String toString;
+	public void afficher(){};
 }
