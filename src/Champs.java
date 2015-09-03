@@ -2,7 +2,7 @@
 public class Champs extends Batiment {
 	
 	public Champs(){
-		super(25,50,10,0,0,50);
+		super(25,50,10,0,0,50,0);
 	}
 	
 	public String toString(){

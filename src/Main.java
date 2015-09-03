@@ -17,7 +17,7 @@ public class Main {
 		System.out.println("\nPour construire appuyer sur c \nPour passez la journée appuyez sur j \nPour supprimer appuyez sur s");
 		repUtilisateur= sc.nextLine();
 		if(repUtilisateur.equals("c")){
-			System.out.println("Pour construire une maison appuyez sur m \nPour construire une mine appuyez sur o \nPour construire un entrepot appuyez sur e \nPour construire une eglise appuyez sur g \nPour construire un champs appuyez sur p");
+			System.out.println("Pour construire une maison appuyez sur m \nPour construire une mine appuyez sur o \nPour construire un entrepot appuyez sur e \nPour construire une eglise appuyez sur g \nPour construire un champs appuyez sur p \nPour construire une scierie appuyez sur i");
 			repUtilisateur= sc.nextLine();
 			if(repUtilisateur.equals("m")){
 				jeu.addBatiment(TypeBatiment.MAISON);
@@ -37,6 +37,10 @@ public class Main {
 			}
 			if(repUtilisateur.equals("p")){
 				jeu.addBatiment(TypeBatiment.CHAMPS);
+				System.out.println(jeu);
+			}
+			if(repUtilisateur.equals("s")){
+				jeu.addBatiment(TypeBatiment.SCIERIE);
 				System.out.println(jeu);
 			}
 		}

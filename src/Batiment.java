@@ -7,15 +7,16 @@ public abstract class Batiment {
 	private static int humeur;
 	private static int recolteOr;
 	private static int recolteNourri;
+	private static int recolteRessource;
 	
-	
-	public Batiment(int res, int or, int hab, int h, int rOr, int rNourri){
+	public Batiment(int res, int or, int hab, int h, int rOr, int rNourri, int rRes){
 		this.ressourceNecessaire=res;
 		this.orNecessaire=or;
 		this.habNecessaire=hab;
 		this.humeur=h;
 		this.recolteOr= rOr;
 		this.recolteNourri=rNourri;
+		this.recolteRessource=rRes;
 	}
 	
 	

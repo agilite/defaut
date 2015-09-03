@@ -2,7 +2,7 @@
 public class Mine extends Batiment {
 	
 	public Mine(){
-		super(100,50,20,0,50,0);
+		super(100,50,20,0,50,0,0);
 	}
 	
 	public String toString(){
