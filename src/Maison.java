@@ -4,7 +4,6 @@ public class Maison extends Batiment {
 	public Maison(){
 		super(25,25,0,0,0,0,0);
 		locataires=5;
-		consommationNourri=50;
 	}
 	
 	public String toString(){

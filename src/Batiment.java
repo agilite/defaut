@@ -2,7 +2,6 @@
 public abstract class Batiment {
 
 	protected static int locataires;
-	protected static int consommationNourri;
 	private static int ressourceNecessaire;
 	private static int orNecessaire;
 	private static int habNecessaire;
