@@ -59,18 +59,23 @@ public class Ville {
 	}
 	
 	public void deleteBatiment(TypeBatiment type){
-		if(type==TypeBatiment.MAISON){
-			habitants-=Batiment.getLocataires();
+		if(nombreBatiments.get(type)>=1){
+			if(type==TypeBatiment.MAISON){
+				habitants-=Batiment.getLocataires();
+			}
+			if(type==TypeBatiment.EGLISE){
+				humeur-=Batiment.getHumeur();
+			}
+			if(type==TypeBatiment.ENTREPOT){
+				stockNourriture-=200;
+			}
+			
+			habitantsDispo+=Batiment.getHabNecessaire();
+			nombreBatiments.put(type, nombreBatiments.get(type)-1);
 		}
-		if(type==TypeBatiment.EGLISE){
-			humeur-=Batiment.getHumeur();
+		else{
+			System.out.println("Aucun batiment n'a encore ete cree");
 		}
-		if(type==TypeBatiment.ENTREPOT){
-			stockNourriture-=200;
-		}
-		
-		habitantsDispo+=Batiment.getHabNecessaire();
-		nombreBatiments.put(type, nombreBatiments.get(type)-1);
 	}
 	
 	public boolean isOver() { return false; }
