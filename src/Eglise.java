@@ -2,11 +2,11 @@
 public class Eglise extends Batiment {
 	
 	public Eglise(){
-		super(25,100,20,0,0,50);
+		super(200,50,10,100,0,0);
 	}
 	
 	public String toString(){
-		return "type: Champs\n ressources necessaires:\n\t ressources: 25, or: 100, habitants: 20 \n\t production journaliere:\n\t or: 50";
+		return "type: Champs\n ressources necessaires:\n\t ressources: 200, or: 50, habitants: 10 \n\t augmentation humeur: 100";
 	}
 	
 	public void afficher(){

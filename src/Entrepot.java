@@ -2,11 +2,11 @@
 public class Entrepot extends Batiment{
 
 	public Entrepot(String nom){
-		super(25,100,20,0,0,50);
+		super(200,200,5,0,0,0);
 	}
 	
 	public String toString(){
-		return "type: Champs\n ressources necessaires:\n\t ressources: 25, or: 100, habitants: 20 \n\t production journaliere:\n\t or: 50";
+		return "type: Champs\n ressources necessaires:\n\t ressources: 200, or: 200, habitants: 5 \n\t augmentation du stock ressource: 200";
 	}
 	
 	public void afficher(){

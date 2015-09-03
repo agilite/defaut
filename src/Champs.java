@@ -2,11 +2,11 @@
 public class Champs extends Batiment {
 	
 	public Champs(){
-		super(25,100,20,0,0,50);
+		super(25,50,10,0,0,50);
 	}
 	
 	public String toString(){
-		return "type: Champs\n ressources necessaires:\n\t ressources: 25, or: 100, habitants: 20 \n\t production journaliere:\n\t or: 50";
+		return "type: Champs\n ressources necessaires:\n\t ressources: 25, or: 50, habitants: 10 \n\t production journaliere:\n\t Nourriture: 50";
 	}
 	
 	public void afficher(){
