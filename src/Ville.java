@@ -148,7 +148,9 @@ public class Ville {
 	}
 	
 	public void calculJournee() {
-		nourriture+=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20;
+		int deltaNourriture=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20;
+		if (deltaNourriture>0 && nourriture<stockNourriture && nourriture+deltaNourriture>stockNourriture) nourriture=stockNourriture;
+		else if (nourriture+deltaNourriture<=stockNourriture) nourriture+=deltaNourriture;
 		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
 		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
 	}
