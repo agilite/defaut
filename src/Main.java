@@ -1,4 +1,4 @@
-/*import java.util.Scanner;
+import java.util.Scanner;
 
 
 public class Main {
@@ -50,7 +50,38 @@ public class Main {
 			if(repUtilisateur.equals("j")){
 				
 			}
+			if(repUtilisateur.equals("s")){
+				System.out.println("Pour detruire une maison, appuyez sur m\n" +
+						   		   "Pour detruire une mine, appuyez sur o\n" +
+						   		   "Pour detruire un entrepot, appuyez sur e\n" +
+						   		   "Pour detruire une eglise, appuyez sur g\n" +
+						   		   "Pour detruire un champ, appuyez sur p\n" +
+								   "Pour detruire une scierie, appuyez sur s");
+				repUtilisateur= sc.nextLine();
+				if(repUtilisateur.equals("m")){
+					jeu.deleteBatiment(TypeBatiment.MAISON);
+				}
+				if(repUtilisateur.equals("o")){
+					jeu.deleteBatiment(TypeBatiment.MINE);
+				}
+				if(repUtilisateur.equals("e")){
+					jeu.deleteBatiment(TypeBatiment.ENTREPOT);
+				}
+				if(repUtilisateur.equals("g")){
+					jeu.deleteBatiment(TypeBatiment.EGLISE);
+				}
+				if(repUtilisateur.equals("p")){
+					jeu.deleteBatiment(TypeBatiment.CHAMPS);
+				}
+				if(repUtilisateur.equals("s")){
+					jeu.deleteBatiment(TypeBatiment.SCIERIE);
+				}
+				System.out.println(jeu);
+			}
+			if(repUtilisateur.equals("j")){
+				
+			}
 		}
 		sc.close();
 	}
-}*/
+}

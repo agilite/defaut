@@ -48,7 +48,7 @@ public class Ville {
 			if (type==TypeBatiment.MINE) new Mine();
 			if (type==TypeBatiment.SCIERIE) new Scierie();
 	
-			habitantsDispo-=Batiment.getHabNecessaire();
+			habitantsDispo=habitants-Batiment.getHabNecessaire();
 			bois-=Batiment.getRessourceNecessaire();
 			or-=Batiment.getOrNecessaire();
 			nombreBatiments.put(type, nombreBatiments.get(type)+1);
@@ -76,7 +76,7 @@ public class Ville {
 	public boolean isOver() { return false; }
 	
 	public String toString() {
-		return nom + " (" + habitants + " habitants disponibles)" + "\n" +
+		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants)\n" +
 			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
 								"Or = " + or + "\n\t" + 
 								"Bois = " + bois + "\n\t" +
