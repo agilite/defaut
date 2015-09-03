@@ -1,18 +1,17 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 
 public class Ville {
 	
 	private String nom = "My little town";
 	private int habitants = 0;
-	@SuppressWarnings("unused")
 	private int habitantsDispo = 0;
 	private int bois = 200;
 	private int nourriture = 200;
 	private int or = 300;
 	private int humeur = 0;
+	private int humeurRequise = 0;
 	private int stockNourriture = 1000; 
 	private Map<TypeBatiment, Integer> nombreBatiments = new HashMap<TypeBatiment, Integer>();
 	
@@ -31,27 +30,30 @@ public class Ville {
 	}
 	
 	public void addBatiment(TypeBatiment type) {
+		switch (type){
+		case CHAMPS: new Champs(); break;
+		case MAISON: new Maison(); break;
+		case EGLISE: new Eglise(); break;
+		case ENTREPOT: new Entrepot(); break;
+		case MINE: new Mine(); break;
+		case SCIERIE: new Scierie(); break;
+		}
 		if(bois >= Batiment.getRessourceNecessaire() && or >= Batiment.getOrNecessaire() && habitantsDispo >= Batiment.getHabNecessaire()){
-			if (type==TypeBatiment.CHAMPS) new Champs();
+			nombreBatiments.put(type, nombreBatiments.get(type)+1);
 			if (type==TypeBatiment.MAISON) {
-				new Maison();
 				habitants+=Batiment.getLocataires();
+				habitantsDispo+=Batiment.getLocataires();
+				humeurRequise+=10;
 			}
 			if (type==TypeBatiment.EGLISE) {
-				new Eglise();
 				humeur+=Batiment.getHumeur();
 			}
 			if (type==TypeBatiment.ENTREPOT) {
-				new Entrepot();
 				stockNourriture+=200;
 			}
-			if (type==TypeBatiment.MINE) new Mine();
-			if (type==TypeBatiment.SCIERIE) new Scierie();
-	
-			habitantsDispo=habitants-Batiment.getHabNecessaire();
+			habitantsDispo-=Batiment.getHabNecessaire();
 			bois-=Batiment.getRessourceNecessaire();
 			or-=Batiment.getOrNecessaire();
-			nombreBatiments.put(type, nombreBatiments.get(type)+1);
 		}
 		else{
 			System.out.println("Construction impossible");
@@ -73,14 +75,20 @@ public class Ville {
 		nombreBatiments.put(type, nombreBatiments.get(type)-1);
 	}
 	
+	public void calculJournee() {
+		nourriture+=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*50;
+		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
+		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
+	}
+	
 	public boolean isOver() { return false; }
 	
 	public String toString() {
 		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants)\n" +
 			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
+								"Humeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
 								"Or = " + or + "\n\t" + 
-								"Bois = " + bois + "\n\t" +
-								"Humeur = " + humeur + "\n" +
+								"Bois = " + bois + "\n" +
 			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
 			   				   "Eglise(s) = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
 			   				   "Entrepôt(s) = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +

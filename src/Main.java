@@ -48,7 +48,8 @@ public class Main {
 				System.out.println(jeu);
 			}
 			if(repUtilisateur.equals("j")){
-				
+				jeu.calculJournee();
+				System.out.println(jeu);
 			}
 			if(repUtilisateur.equals("s")){
 				System.out.println("Pour detruire une maison, appuyez sur m\n" +
