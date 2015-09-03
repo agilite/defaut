@@ -15,7 +15,7 @@ public class Ville {
 	public Ville() {
 		nombreBatiments.put(TypeBatiment.CHAMPS, 0);
 		nombreBatiments.put(TypeBatiment.EGLISE, 0);
-		nombreBatiments.put(TypeBatiment.ENTERPOT, 0);
+		nombreBatiments.put(TypeBatiment.ENTREPOT, 0);
 		nombreBatiments.put(TypeBatiment.MAISON, 0);
 		nombreBatiments.put(TypeBatiment.MINE, 0);
 		
@@ -36,7 +36,7 @@ public class Ville {
 								"Humeur = " + humeur + "\n" +
 			   "Bâtiments :\n\tChamps = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
 			   				   "Eglises = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
-			   				   "Entrepôts = " + nombreBatiments.get(TypeBatiment.ENTERPOT) + "\n\t" +
+			   				   "Entrepôts = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +
 			   				   "Maisons = " + nombreBatiments.get(TypeBatiment.MAISON) + "\n\t" +
 			   				   "Mines = " + nombreBatiments.get(TypeBatiment.MINE);
 	}
