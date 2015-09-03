@@ -2,7 +2,7 @@
 public class Maison extends Batiment {
 	
 	public Maison(){
-		super(25,25,0,0,10,0,0);
+		super(25,25,0,0,0,0,0);
 		locataires=5;
 	}
 	

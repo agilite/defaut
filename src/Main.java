@@ -22,12 +22,12 @@ public class Main {
 					   		   "Pour faire un echange appuyez sur w");
 			repUtilisateur= sc.nextLine();
 			if(repUtilisateur.equals("c")){
-				System.out.println("Pour construire une maison, appuyez sur m \t(demande: 25 bois, 25 or)(recolte journaliere: 10 or)\n" +
-						   		   "Pour construire une mine, appuyez sur o \t(demande: 100 bois, 50 or, 20 habitants)(recolte journaliere: 50 or)\n" +
-						   		   "Pour construire un entrepot, appuyez sur e \t(demande: 200 bois, 200 or, 5 habitants)(augmentation du stock: 200 nourritures)\n" +
-						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 10 habitants)(augmentation humeur: 100)\n" +
-						   		   "Pour construire un champ, appuyez sur p \t(demande: 25 bois, 50 or, 10 habitants)(recolte journaliere: 50 nourritures)\n" +
-								  "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants)(recolte journaliere: 100 bois)");
+				System.out.println("Pour construire une maison, appuyez sur m \t(demande: 25 bois, 25 or)\t(consommation journalière: 20 nourriture, +5 habitants)\n" +
+						   		   "Pour construire une mine, appuyez sur o \t(demande: 100 bois, 50 or, 20 habitants)\t(récolte journalière: 50 or)\n" +
+						   		   "Pour construire un entrepot, appuyez sur e \t(demande: 200 bois, 200 or, 5 habitants)\t(augmentation du stock: 200 nourriture)\n" +
+						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 10 habitants)\t(augmentation humeur: 100)\n" +
+						   		   "Pour construire un champ, appuyez sur p \t(demande: 25 bois, 50 or, 10 habitants)\t(récolte journalière: 50 nourriture)\n" +
+								  "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants)\t(récolte journalière: 100 bois)");
 				
 				repUtilisateur= sc.nextLine();
 				
@@ -36,7 +36,7 @@ public class Main {
 				case "o" : jeu.addBatiment(TypeBatiment.MINE); break;
 				case "e" : jeu.addBatiment(TypeBatiment.ENTREPOT); break;
 				case "g" : jeu.addBatiment(TypeBatiment.EGLISE); break;
-				case "p" : jeu.addBatiment(TypeBatiment.CHAMPS); break;
+				case "c" : jeu.addBatiment(TypeBatiment.CHAMPS); break;
 				case "s" : jeu.addBatiment(TypeBatiment.SCIERIE); break;
 				}
 				System.out.println(jeu);
@@ -58,7 +58,7 @@ public class Main {
 				case "o" : jeu.deleteBatiment(TypeBatiment.MINE); break;
 				case "e" : jeu.deleteBatiment(TypeBatiment.ENTREPOT); break;
 				case "g" : jeu.deleteBatiment(TypeBatiment.EGLISE); break;
-				case "p" : jeu.deleteBatiment(TypeBatiment.CHAMPS); break;
+				case "c" : jeu.deleteBatiment(TypeBatiment.CHAMPS); break;
 				case "s" : jeu.deleteBatiment(TypeBatiment.SCIERIE); break;
 				}
 				System.out.println(jeu);
