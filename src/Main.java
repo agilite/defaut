@@ -18,7 +18,7 @@ public class Main {
 		while(!jeu.isOver()) {
 			System.out.println("\nPour construire, appuyez sur c\n" +
 					   		   "Pour passer la journée, appuyez sur j\n" +
-					   		   "Pour supprimer, appuyez sur s\n" +
+					   		   "Pour supprimer, appuyez sur d\n" +
 					   		   "Pour faire un echange appuyez sur w");
 			repUtilisateur= sc.nextLine();
 			if(repUtilisateur.equals("c")){
@@ -27,7 +27,7 @@ public class Main {
 						   		   "Pour construire un entrepot, appuyez sur e \t(demande: 200 bois, 200 or, 5 habitants)\t(augmentation du stock: 200 nourriture)\n" +
 						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 10 habitants)\t(augmentation humeur: 100)\n" +
 						   		   "Pour construire un champ, appuyez sur p \t(demande: 25 bois, 50 or, 10 habitants)\t(récolte journalière: 50 nourriture)\n" +
-								  "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants)\t(récolte journalière: 100 bois)");
+								   "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants)\t(récolte journalière: 100 bois)");
 				
 				repUtilisateur= sc.nextLine();
 				
@@ -45,7 +45,7 @@ public class Main {
 				jeu.calculJournee();
 				System.out.println(jeu);
 			}
-			if(repUtilisateur.equals("s")){
+			if(repUtilisateur.equals("d")){
 				System.out.println("Pour detruire une maison, appuyez sur m\n" +
 						   		   "Pour detruire une mine, appuyez sur o\n" +
 						   		   "Pour detruire un entrepot, appuyez sur e\n" +
