@@ -73,6 +73,8 @@ public class Ville {
 		nombreBatiments.put(type, nombreBatiments.get(type)-1);
 	}
 	
+	public boolean isOver() { return false; }
+	
 	public String toString() {
 		return nom + " (" + habitants + " habitants disponibles)" + "\n" +
 			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
