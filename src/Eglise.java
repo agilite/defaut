@@ -6,7 +6,7 @@ public class Eglise extends Batiment {
 	}
 	
 	public String toString(){
-		return "type: Champs\n ressources necessaires:\n\t ressources: 200, or: 50, habitants: 10 \n\t augmentation humeur: 100";
+		return "type: Champs\n ressources necessaires:\n\t bois: 200, or: 50, habitants: 10 \n\t augmentation humeur: 100";
 	}
 	
 	public void afficher(){
