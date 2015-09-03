@@ -1,15 +1,17 @@
 
 public class Champs extends Batiment {
 	
-	public Champs(String nom){
-		super(nom);
+	public Champs(){
+		super(25,100,20,0,0,50);
 	}
 	
 	public String toString(){
-		return "type: champs \nnom : "+this.nom;
+		return "type: Champs\n ressources necessaires:\n\t ressources: 25, or: 100, habitants: 20 \n\t production journaliere:\n\t or: 50";
 	}
 	
 	public void afficher(){
 		System.out.println(this.toString());
 	}
+	
+	
 }

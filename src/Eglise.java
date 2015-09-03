@@ -1,12 +1,12 @@
 
 public class Eglise extends Batiment {
 	
-	public Eglise(String nom){
-		super(nom);
+	public Eglise(){
+		super(25,100,20,0,0,50);
 	}
 	
 	public String toString(){
-		return "type: eglise \nnom : "+this.nom;
+		return "type: Champs\n ressources necessaires:\n\t ressources: 25, or: 100, habitants: 20 \n\t production journaliere:\n\t or: 50";
 	}
 	
 	public void afficher(){
