@@ -1,12 +1,12 @@
 
 public abstract class Batiment {
 
-	private int ressourceNecessaire;
-	private int orNecessaire;
-	private int habNecessaire;
-	private int humeur;
-	private int recolteOr;
-	private int recolteNourri;
+	private static int ressourceNecessaire;
+	private static int orNecessaire;
+	private static int habNecessaire;
+	private static int humeur;
+	private static int recolteOr;
+	private static int recolteNourri;
 	
 	
 	public Batiment(int res, int or, int hab, int h, int rOr, int rNourri){
@@ -22,27 +22,27 @@ public abstract class Batiment {
 	public String toString;
 	public void afficher(){};
 	
-	public int getRessourceNecessaire(){
-		return this.ressourceNecessaire;
+	public static int getRessourceNecessaire(){
+		return ressourceNecessaire;
 	}
 	
-	public int getOrNecessaire(){
-		return this.orNecessaire;
+	public static int getOrNecessaire(){
+		return orNecessaire;
 	}
 	
-	public int getHabNecessaire(){
-		return this.habNecessaire;
+	public static int getHabNecessaire(){
+		return habNecessaire;
 	}
 	
-	public int getHumeur(){
-		return this.humeur;
+	public static int getHumeur(){
+		return humeur;
 	}
 	
-	public int getRecolteOr(){
-		return this.recolteOr;
+	public static int getRecolteOr(){
+		return recolteOr;
 	}
 	
-	public int getRecolteNourri(){
-		return this.recolteNourri;
+	public static int getRecolteNourri(){
+		return recolteNourri;
 	}
 }

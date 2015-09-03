@@ -1,7 +1,7 @@
 
 public class Entrepot extends Batiment{
 
-	public Entrepot(String nom){
+	public Entrepot(){
 		super(200,200,5,0,0,0);
 	}
 	

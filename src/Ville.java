@@ -6,6 +6,8 @@ public class Ville {
 	
 	private String nom = "My little town";
 	private int habitants = 0;
+	private int habitantsDispo = 0;
+	private int bois = 200;
 	private int nourriture = 200;
 	private int or = 300;
 	private int humeur = 0;
@@ -26,6 +28,16 @@ public class Ville {
 	}
 	
 	public void addBatiment(TypeBatiment type) {
+		if (type==TypeBatiment.CHAMPS) new Champs();
+		if (type==TypeBatiment.MAISON) new Maison();
+		if (type==TypeBatiment.EGLISE) new Eglise();
+		if (type==TypeBatiment.ENTREPOT) new Entrepot();
+		if (type==TypeBatiment.MINE) new Mine();
+		
+		habitantsDispo-=Batiment.getHabNecessaire();
+		bois-=Batiment.getRessourceNecessaire();
+		or-=Batiment.getOrNecessaire();
+		humeur+=Batiment.getHumeur();
 		nombreBatiments.put(type, nombreBatiments.get(type)+1);
 	}
 	
@@ -33,12 +45,13 @@ public class Ville {
 		return nom + " (" + habitants + " habitants)" + "\n" +
 			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
 								"Or = " + or + "\n\t" + 
+								"Bois = " + bois + "\n\t" +
 								"Humeur = " + humeur + "\n" +
-			   "Bâtiments :\n\tChamps = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
-			   				   "Eglises = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
-			   				   "Entrepôts = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +
-			   				   "Maisons = " + nombreBatiments.get(TypeBatiment.MAISON) + "\n\t" +
-			   				   "Mines = " + nombreBatiments.get(TypeBatiment.MINE);
+			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
+			   				   "Eglise(s) = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
+			   				   "Entrepôt(s) = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +
+			   				   "Maison(s) = " + nombreBatiments.get(TypeBatiment.MAISON) + "\n\t" +
+			   				   "Mine(s) = " + nombreBatiments.get(TypeBatiment.MINE);
 	}
 	
 	public static void main(String[] args) {
@@ -47,6 +60,11 @@ public class Ville {
 		toto.addBatiment(TypeBatiment.MAISON);
 		System.out.println(toto);
 		toto.addBatiment(TypeBatiment.MAISON);
+		System.out.println(toto);
+		for (int i=0; i<10; i++) toto.addBatiment(TypeBatiment.CHAMPS);
+		toto.addBatiment(TypeBatiment.ENTREPOT);
+		toto.addBatiment(TypeBatiment.EGLISE);
+		toto.addBatiment(TypeBatiment.MINE);
 		System.out.println(toto);
 	}
 	
