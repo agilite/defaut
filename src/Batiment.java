@@ -1,6 +1,7 @@
 
 public abstract class Batiment {
 
+	protected static int locataires;
 	private static int ressourceNecessaire;
 	private static int orNecessaire;
 	private static int habNecessaire;
@@ -10,13 +11,12 @@ public abstract class Batiment {
 	private static int recolteRessource;
 	
 	public Batiment(int res, int or, int hab, int h, int rOr, int rNourri, int rRes){
-		this.ressourceNecessaire=res;
-		this.orNecessaire=or;
-		this.habNecessaire=hab;
-		this.humeur=h;
-		this.recolteOr= rOr;
-		this.recolteNourri=rNourri;
-		this.recolteRessource=rRes;
+		ressourceNecessaire=res;
+		orNecessaire=or;
+		habNecessaire=hab;
+		humeur=h;
+		recolteOr= rOr;
+		recolteNourri=rNourri;
 	}
 	
 	
@@ -45,5 +45,13 @@ public abstract class Batiment {
 	
 	public static int getRecolteNourri(){
 		return recolteNourri;
+	}
+	
+	public static int getLocataires() {
+		return locataires;
+	}
+
+	public static int getRecolteRessource() {
+		return recolteRessource;
 	}
 }
