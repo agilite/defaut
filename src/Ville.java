@@ -76,7 +76,7 @@ public class Ville {
 			nombreBatiments.put(type, nombreBatiments.get(type)-1);
 		}
 		else{
-			System.out.println("Aucun batiment n'a encore ete cree");
+			System.out.println("Aucun bâtiment n'a encore ete cree");
 		}
 	}
 	
