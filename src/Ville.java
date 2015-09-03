@@ -61,18 +61,66 @@ public class Ville {
 	}
 	
 	public void deleteBatiment(TypeBatiment type){
-		if(type==TypeBatiment.MAISON){
-			habitants-=Batiment.getLocataires();
+		if(nombreBatiments.get(type)>=1){
+			if(type==TypeBatiment.MAISON){
+				habitants-=Batiment.getLocataires();
+			}
+			if(type==TypeBatiment.EGLISE){
+				humeur-=Batiment.getHumeur();
+			}
+			if(type==TypeBatiment.ENTREPOT){
+				stockNourriture-=200;
+			}
+			
+			habitantsDispo+=Batiment.getHabNecessaire();
+			nombreBatiments.put(type, nombreBatiments.get(type)-1);
 		}
-		if(type==TypeBatiment.EGLISE){
-			humeur-=Batiment.getHumeur();
+		else{
+			System.out.println("Aucun batiment n'a encore ete cree");
 		}
-		if(type==TypeBatiment.ENTREPOT){
-			stockNourriture-=200;
+	}
+	
+	public void marcheAccepte(String s,int i){
+		if(s.equals("o")){
+			if(i==1){
+				if(or>=10){
+					or-=10;
+					bois+=50;
+				}
+				else{
+					System.out.println("Echange impossible");
+				}
+			}
+			if(i==2){
+				if(or>=100){
+					or-=100;
+					bois+=500;
+				}
+				else{
+					System.out.println("Echange impossible");
+				}
+			}
 		}
-		
-		habitantsDispo+=Batiment.getHabNecessaire();
-		nombreBatiments.put(type, nombreBatiments.get(type)-1);
+		if(s.equals("r")){
+			if(i==1){
+				if(bois>=50){
+					bois-=50;
+					or+=10;
+				}
+				else{
+					System.out.println("Echange impossible");
+				}
+			}
+			if(i==2){
+				if(bois>=500){
+					bois-=500;
+					or+=100;
+				}
+				else{
+					System.out.println("Echange impossible");
+				}
+			}
+		}
 	}
 	
 	public void calculJournee() {
@@ -82,6 +130,15 @@ public class Ville {
 	}
 	
 	public boolean isOver() { return false; }
+	
+	
+	public int getOr(){
+		return this.or;
+	}
+	
+	public int getBois(){
+		return this.bois;
+	}
 	
 	public String toString() {
 		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants)\n" +

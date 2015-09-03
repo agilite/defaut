@@ -17,7 +17,8 @@ public class Main {
 		while(!jeu.isOver()) {
 			System.out.println("\nPour construire, appuyez sur c\n" +
 					   		   "Pour passer la journée, appuyez sur j\n" +
-					   		   "Pour supprimer, appuyez sur s");
+					   		   "Pour supprimer, appuyez sur s\n" +
+					   		   "Pour faire un echange appuyez sur w");
 			repUtilisateur= sc.nextLine();
 			if(repUtilisateur.equals("c")){
 				System.out.println("Pour construire une maison, appuyez sur m\n" +
@@ -81,6 +82,38 @@ public class Main {
 			}
 			if(repUtilisateur.equals("j")){
 				
+			}
+			if(repUtilisateur.equals("w")){
+				System.out.println("Pour echanger des ressources, appuyez sur r\n" +
+								   "Pour echanger de l'or, appuyez sur o\n");
+				repUtilisateur= sc.nextLine();
+				
+				if(repUtilisateur.equals("r")){
+					System.out.println("Pour echanger 50 ressources contre 10 or, appuyez sur 1\n" +
+										"Pour echanger 500 ressources contre 100 or, appuyez sur 2\n");
+					repUtilisateur= sc.nextLine();
+					if(repUtilisateur.equals("1")){
+						jeu.marcheAccepte("r",1);
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" ressources");
+					}
+					if(repUtilisateur.equals("2")){
+						jeu.marcheAccepte("r",2);
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" ressources");
+					}
+				}
+				if(repUtilisateur.equals("o")){
+					System.out.println("Pour echanger 10 or contre 50 ressources, appuyez sur 1\n" +
+										"Pour echanger 100 or contre 500 ressources, appuyez sur 2\n");
+					repUtilisateur= sc.nextLine();
+					if(repUtilisateur.equals("1")){
+						jeu.marcheAccepte("o",1);
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" ressources");
+					}
+					if(repUtilisateur.equals("2")){
+						jeu.marcheAccepte("o",2);
+						System.out.println("Il vous reste "+jeu.getOr()+" or et "+jeu.getBois()+" ressources");
+					}
+				}
 			}
 		}
 		sc.close();
