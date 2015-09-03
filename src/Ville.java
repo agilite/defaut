@@ -17,6 +17,7 @@ public class Ville {
 	private int humeurRequise = 0;
 	private int stockNourriture = 1000; 
 	private Map<TypeBatiment, Integer> nombreBatiments = new HashMap<TypeBatiment, Integer>();
+	private int nbJours=0;
 	
 	public Ville() {
 		nombreBatiments.put(TypeBatiment.CHAMPS, 0);
@@ -43,16 +44,15 @@ public class Ville {
 		}
 		if(bois >= Batiment.getRessourceNecessaire() && or >= Batiment.getOrNecessaire() && habitantsDispo >= Batiment.getHabNecessaire()){
 			nombreBatiments.put(type, nombreBatiments.get(type)+1);
-			if (type==TypeBatiment.MAISON) {
+			switch(type){
+			case MAISON : 
 				habitants+=Batiment.getLocataires();
 				habitantsDispo+=Batiment.getLocataires();
-				humeurRequise+=10;
-			}
-			if (type==TypeBatiment.EGLISE) {
-				humeur+=Batiment.getHumeur();
-			}
-			if (type==TypeBatiment.ENTREPOT) {
-				stockNourriture+=200;
+				humeurRequise+=10; break;
+			case EGLISE : 
+				humeur+=Batiment.getHumeur(); break;
+			case ENTREPOT : 
+				stockNourriture+=200; break;
 			}
 			habitantsDispo-=Batiment.getHabNecessaire();
 			bois-=Batiment.getRessourceNecessaire();
@@ -65,14 +65,13 @@ public class Ville {
 	
 	public void deleteBatiment(TypeBatiment type){
 		if(nombreBatiments.get(type)>=1){
-			if(type==TypeBatiment.MAISON){
-				habitants-=Batiment.getLocataires();
-			}
-			if(type==TypeBatiment.EGLISE){
-				humeur-=Batiment.getHumeur();
-			}
-			if(type==TypeBatiment.ENTREPOT){
-				stockNourriture-=200;
+			switch(type){
+			case MAISON : 
+				habitants-=Batiment.getLocataires(); break;
+			case EGLISE : 
+				humeur-=Batiment.getHumeur(); break;
+			case ENTREPOT : 
+				stockNourriture-=200; break;
 			}
 			
 			habitantsDispo+=Batiment.getHabNecessaire();
@@ -84,14 +83,14 @@ public class Ville {
 	}
 	
 	public void marcheAccepte(String s,int i){
-		if(s.equals("o")){
+		if(s.equals("b")){
 			if(i==1){
 				if(or>=10){
 					or-=10;
 					bois+=50;
 				}
 				else{
-					System.out.println("Echange impossible");
+					System.out.println("\t *********ECHANGE IMPOSSIBLE !************");
 				}
 			}
 			if(i==2){
@@ -100,11 +99,11 @@ public class Ville {
 					bois+=500;
 				}
 				else{
-					System.out.println("Echange impossible");
+					System.out.println("\t ECHANGE IMPOSSIBLE !");
 				}
 			}
 		}
-		if(s.equals("r")){
+		if(s.equals("o")){
 			if(i==1){
 				if(bois>=50){
 					bois-=50;
@@ -153,6 +152,7 @@ public class Ville {
 		else if (nourriture+deltaNourriture<=stockNourriture) nourriture+=deltaNourriture;
 		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
 		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
+		nbJours+=1;
 	}
 	
 	public boolean isOver() {
@@ -181,8 +181,12 @@ public class Ville {
 		return this.nourriture;
 	}
 	
+	public int getNbJours(){
+		return this.nbJours;
+	}
+	
 	public String toString() {
-		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants)\n" +
+		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
 			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
 								"Humeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
 								"Or = " + or + "\n\t" + 
