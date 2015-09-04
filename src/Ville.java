@@ -140,19 +140,19 @@ public class Ville {
 		}
 		else if(s.equals("n")){
 			if(i==1){
-				if(or>=50){
+				if(or>=50 && nourriture+100 <= stockNourriture){
 					or-=50; nourriture+=100;
 				}
 				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
 			}
 			if(i==2){
-				if(alcool>=10){
+				if(alcool>=10 && nourriture+100 <= stockNourriture){
 					alcool-=10; nourriture+=100;
 				}
 				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
 			}
 			if(i==3){
-				if(bois>=100){
+				if(bois>=100 && nourriture+100 <= stockNourriture){
 					bois-=100; nourriture+=25;
 				}
 				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
@@ -167,7 +167,7 @@ public class Ville {
 			}
 			if(i==2){
 				if(or>=200){
-					or+=200; alcool+=10;
+					or-=200; alcool+=10;
 				}
 				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
 			}
