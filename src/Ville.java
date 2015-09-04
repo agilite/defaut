@@ -163,7 +163,7 @@ public class Ville {
 		else if (nourriture+deltaNourriture<=stockNourriture) nourriture+=deltaNourriture;
 		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
 		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
-		nbJours++;
+		nbJours+=1;
 	}
 	
 	public boolean isOver() {
@@ -201,7 +201,7 @@ public class Ville {
 			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
 								"Humeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
 								"Or = " + or + "\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
-								"Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n\t" +
+								"Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n" +
 			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
 			   				   "Eglise(s) = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
 			   				   "Entrepôt(s) = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +
