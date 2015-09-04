@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 
 public class Ville {
@@ -161,6 +162,8 @@ public class Ville {
 	}
 	
 	public void calculJournee() {
+		Random r = new Random();
+		int rand = r.nextInt(100);
 		int deltaNourriture=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20;
 		if (deltaNourriture>0 && nourriture<stockNourriture && nourriture+deltaNourriture>stockNourriture) nourriture=stockNourriture;
 		else if (nourriture+deltaNourriture<=stockNourriture) nourriture+=deltaNourriture;
@@ -168,6 +171,45 @@ public class Ville {
 		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
 		alcool+=nombreBatiments.get(TypeBatiment.TAVERNE)*20;
 		nbJours+=1;
+		switch (rand%99) {
+		case 0 :
+			if( nombreBatiments.get(TypeBatiment.MAISON)>0 && habitantsDispo>5){
+			System.out.println("\n\n\t\t\t *****   ALERTE !!!!  ***** \n\t\t UN INCENDIE A DETRUIT UN BATIMENT DU VILLAGE \n\t\t\t\t (- 1 maison)");
+			deleteBatiment(TypeBatiment.MAISON);}
+			break;
+
+		case 1:
+			if(nombreBatiments.get(TypeBatiment.EGLISE)>0){
+				System.out.println("\n\n\t\t\t *****   ALERTE !!!!  ***** \n\t\t UN INCENDIE A DETRUIT UN BATIMENT DU VILLAGE \n\t\t\t\t (- 1 eglise)");
+				deleteBatiment(TypeBatiment.EGLISE);
+			}
+			break;
+		case 2:
+			if(nombreBatiments.get(TypeBatiment.TAVERNE)>0){
+				System.out.println("\n\n\t\t\t *****   ALERTE !!!!  ***** \n\t\t UN INCENDIE A DETRUIT UN BATIMENT DU VILLAGE \n\t\t\t\t (- 1 taverne)");
+				deleteBatiment(TypeBatiment.TAVERNE);
+			}
+			break;
+		case 3:
+			if(nombreBatiments.get(TypeBatiment.MINE)>0){
+				System.out.println("\n\n\t\t\t *****   ALERTE !!!!  ***** \n\t\t VOTRE MINE D'OR A DECOUVERT UN DIAMANT \n\t\t\t\t (+ 100 or)");
+				or+=100;
+			}
+			break;
+		case 4:
+			if(nombreBatiments.get(TypeBatiment.CHAMPS)>0){
+				System.out.println("\n\n\t\t\t *****   ALERTE !!!!  ***** \n\t\t LA RECOLTE DE NOURRITURE A ETE BONNE \n\t\t\t\t (+ 100 de nourriture)");
+				nourriture+=100;
+			}
+			break;
+			
+		case 5:
+		if(nombreBatiments.get(TypeBatiment.SCIERIE)>0){
+			System.out.println("\n\n\t\t\t *****   ALERTE !!!!  ***** \n\t\t LES BUCHERONS ONT BIEN TRAVAILLÉ \n\t\t\t\t (+ 100 de bois)");
+			bois+=100;
+			}
+			break;
+		}
 	}
 	
 	public boolean isOver() {
