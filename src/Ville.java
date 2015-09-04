@@ -220,13 +220,24 @@ public class Ville {
 	}
 	
 	public String toString() {
+		String s="";
+		if(nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20>=0){
+			s="+";
+		}
 		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
+<<<<<<< HEAD
 
 			   "Ressources :\n\tHumeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
 			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\t\t(+" + nombreBatiments.get(TypeBatiment.CHAMPS)*50 + ", -" + nombreBatiments.get(TypeBatiment.MAISON)*20 + " nourriture)\n\t" +
 							   "Or = " + or + "\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
 							   "Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n" +
 
+=======
+			   "Ressources :\n\tHumeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
+			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\t(" + s + (nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20) + " nourriture)\n\t" +
+							   "Or = " + or + "\t\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
+							   "Bois = " + bois + "\t\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n\t" +
+>>>>>>> 39daa8a56fdc561e6b08574b827b0e879c582d2b
 			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
 			   				   "Eglise(s) = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
 			   				   "Entrepôt(s) = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +
