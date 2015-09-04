@@ -22,7 +22,7 @@ public class Main {
 			repUtilisateur= sc.nextLine();
 			
 			if(repUtilisateur.equals("c")){
-				System.out.println("Pour construire une maison, appuyez sur m \t(demande: 25 bois, 25 or) \t\t\t(consommation journalière: 20 nourriture, +5 habitants)\n" +
+				System.out.println("Pour construire une maison, appuyez sur m \t(demande: 25 bois, 25 or) \t\t\t(consommation journalière: 10 nourriture, +5 habitants)\n" +
 						   		   "Pour construire une mine, appuyez sur o \t(demande: 100 bois, 50 or, 10 habitants) \t(récolte journalière: 50 or)\n" +
 						   		   "Pour construire un entrepot, appuyez sur e \t(demande: 200 bois, 200 or, 5 habitants) \t(augmentation du stock: 200 nourriture)\n" +
 						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 6 habitants)\t\t(augmentation humeur: 100)\n" +
