@@ -311,7 +311,7 @@ public class Ville {
 		}
 		return "\n\n\n" + nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
 			   "Ressources :\n\tHumeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
-			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\t(" + s + (nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20) + " nourriture)\n\t" +
+			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\t(" + s + (nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*10) + " nourriture)\n\t" +
 			   				   "Alcool = " + alcool + "\t\t(+" + nombreBatiments.get(TypeBatiment.TAVERNE)*5 + " alcool)\n\t" +
 							   "Or = " + or + "\t\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
 							   "Bois = " + bois + "\t\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n" +
