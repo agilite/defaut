@@ -198,10 +198,17 @@ public class Ville {
 	
 	public String toString() {
 		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
+<<<<<<< HEAD
 			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
 								"Humeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
 								"Or = " + or + "\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
 								"Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n" +
+=======
+			   "Ressources :\n\tHumeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
+			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\n\t" + "\t(+" + nombreBatiments.get(TypeBatiment.CHAMPS)*50 + ", -" + nombreBatiments.get(TypeBatiment.MAISON)*20 + " nourriture)\n\t" +
+							   "Or = " + or + "\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
+							   "Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n\t" +
+>>>>>>> cfb3cd0a1aa8c7a91bb5c953651b04552a08b451
 			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
 			   				   "Eglise(s) = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
 			   				   "Entrepôt(s) = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +
