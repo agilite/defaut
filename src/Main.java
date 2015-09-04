@@ -27,7 +27,7 @@ public class Main {
 						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 10 habitants)\t(augmentation humeur: 100)\n" +
 						   		   "Pour construire un champ, appuyez sur p \t(demande: 25 bois, 50 or, 10 habitants) \t(récolte journalière: 50 nourriture)\n" +
 								   "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants) \t(récolte journalière: 100 bois)");
-				
+
 				repUtilisateur= sc.nextLine();
 				
 				switch (repUtilisateur){
@@ -35,7 +35,7 @@ public class Main {
 				case "o" : jeu.addBatiment(TypeBatiment.MINE); break;
 				case "e" : jeu.addBatiment(TypeBatiment.ENTREPOT); break;
 				case "g" : jeu.addBatiment(TypeBatiment.EGLISE); break;
-				case "c" : jeu.addBatiment(TypeBatiment.CHAMPS); break;
+				case "p" : jeu.addBatiment(TypeBatiment.CHAMPS); break;
 				case "s" : jeu.addBatiment(TypeBatiment.SCIERIE); break;
 				}
 				System.out.println(jeu);
@@ -61,9 +61,6 @@ public class Main {
 				case "s" : jeu.deleteBatiment(TypeBatiment.SCIERIE); break;
 				}
 				System.out.println(jeu);
-			}
-			if(repUtilisateur.equals("j")){
-				
 			}
 			if(repUtilisateur.equals("w")){
 				System.out.println("Pour echanger contre de l'or, appuyez sur o\n" +
