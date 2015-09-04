@@ -43,6 +43,14 @@ public class Main {
 				System.out.println(jeu);
 			}
 			if(repUtilisateur.equals("j")){
+				System.out.println("                     \\       /  \n" +
+						"                       .-'-.       \n" +
+						"                  --  /     \\  --      \n" +
+						" `~~^~^~^~^~^~^~^~^~^-=======-~^~^~^~~^~^~^~^~^~^~^~` \n" +
+						" `~^_~^~^~-~^_~^~^_~-=========- -~^~^~^-~^~^_~^~^~^~`\n" +
+						" `~^~-~~^~^~-^~^_~^~~ -=====- ~^~^~-~^~_~^~^~~^~-~^~`\n" +
+						" `~^~^~-~^~~^~-~^~~-~^~^~-~^~~^-~^~^~^-~^~^~^~^~~^~-` \n\n" +
+						"\t\t ET LE VILLAGE S'ENDORT...");
 				jeu.calculJournee();
 				jeu.revolte();
 				System.out.println(jeu);
