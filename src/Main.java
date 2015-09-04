@@ -25,7 +25,7 @@ public class Main {
 				System.out.println("Pour construire une maison, appuyez sur m \t(demande: 25 bois, 25 or) \t\t\t(consommation journalière: 20 nourriture, +5 habitants)\n" +
 						   		   "Pour construire une mine, appuyez sur o \t(demande: 100 bois, 50 or, 10 habitants) \t(récolte journalière: 50 or)\n" +
 						   		   "Pour construire un entrepot, appuyez sur e \t(demande: 200 bois, 200 or, 5 habitants) \t(augmentation du stock: 200 nourriture)\n" +
-						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 6 habitants)\t(augmentation humeur: 100)\n" +
+						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 6 habitants)\t\t(augmentation humeur: 100)\n" +
 						   		   "Pour construire un champ, appuyez sur p \t(demande: 25 bois, 50 or, 10 habitants) \t(récolte journalière: 50 nourriture)\n" +
 								   "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants) \t(récolte journalière: 100 bois)\n" +
 								   "Pour construire une taverne, appuyez sur t \t(demande: 100 bois, 100 or, 5 habitants) \t(récolte journalière: 5 alcool)");

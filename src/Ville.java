@@ -8,10 +8,10 @@ public class Ville {
 	private String nom = "My little town";
 	private int habitants = 0;
 	private int habitantsDispo = 0;
-	private int bois = 500;
-	private int nourriture = 200;
+	private int bois = 800;
+	private int nourriture = 400;
 	private int alcool = 0;
-	private int or = 600;
+	private int or = 800;
 	private int humeur = 0;
 	private int humeurRequise = 0;
 	private int stockNourriture = 1000; 
@@ -86,6 +86,14 @@ public class Ville {
 			case ENTREPOT :
 				new Entrepot();
 				stockNourriture-=200; break;
+			case TAVERNE:
+				new Taverne(); break;
+			case CHAMPS:
+				new Champs(); break;
+			case MINE:
+				new Mine(); break;
+			case SCIERIE:
+				new Scierie(); break;
 			}
 			if (test) {
 				habitantsDispo+=Batiment.getHabNecessaire();
@@ -189,8 +197,8 @@ public class Ville {
 			nourriture+=deltaNourriture;
 		}
 		alcool+=nombreBatiments.get(TypeBatiment.TAVERNE)*5;
-		if(alcool >= nombreBatiments.get(TypeBatiment.MAISON)*2){
-			alcool-=nombreBatiments.get(TypeBatiment.MAISON)*2;
+		if(alcool >= nombreBatiments.get(TypeBatiment.MAISON)){
+			alcool-=nombreBatiments.get(TypeBatiment.MAISON);
 			humeur+=alcool*2;
 		}
 		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
