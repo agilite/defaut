@@ -59,7 +59,7 @@ public class Ville {
 			or-=Batiment.getOrNecessaire();
 		}
 		else{
-			System.out.println("Construction impossible");
+			System.out.println("\n\t CONSTRUCTION IMPOSSIBLE !");
 		}
 	}
 	
@@ -70,7 +70,7 @@ public class Ville {
 			case MAISON :
 				new Maison();
 				if (habitantsDispo<5) {
-					System.out.println("Vous ne pouvez pas détruire de maison, sous peine de manquer de main d'oeuvre !");
+					System.out.println("\n\t Vous ne pouvez pas détruire de maison, sous peine de manquer de main d'oeuvre !");
 					test=false;
 				}
 				else {
@@ -92,70 +92,89 @@ public class Ville {
 			}
 		}
 		else{
-			System.out.println("Aucun bâtiment n'a encore ete cree");
+			System.out.println("\n\t BATIMENT INEXISTANT !");
 		}
 	}
 	
 	public void marcheAccepte(String s,int i){
-		if(s.equals("b")){
-			if(i==1){
-				if(or>=10){
-					or-=10;
-					bois+=50;
-				}
-				else{
-					System.out.println("\t *********ECHANGE IMPOSSIBLE !************");
-				}
-			}
-			if(i==2){
-				if(or>=100){
-					or-=100;
-					bois+=500;
-				}
-				else{
-					System.out.println("\t ECHANGE IMPOSSIBLE !");
-				}
-			}
-		}
 		if(s.equals("o")){
 			if(i==1){
 				if(bois>=50){
-					bois-=50;
-					or+=10;
+					bois-=50; or+=10;
 				}
-				else{
-					System.out.println("Echange impossible");
-				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
 			}
 			if(i==2){
-				if(bois>=500){
-					bois-=500;
-					or+=100;
+				if(alcool>=5){
+					alcool-=5; or+=100;
 				}
-				else{
-					System.out.println("Echange impossible");
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
+			}
+			if(i==3){
+				if(nourriture>=500){
+					nourriture-=500; or+=100;
 				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
 			}
 		}
-		
-		if(s.equals("n")){
+		else if(s.equals("b")){
 			if(i==1){
-				if(or>=50){
-					or-=50;
-					nourriture+=100;
+				if(or>=10){
+					or-=10; bois+=500;
 				}
-				else{
-					System.out.println("Echange impossible");
-				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
 			}
 			if(i==2){
-				if(bois>=50){
-					bois-=50;
-					nourriture+=25;
+				if(alcool>=10){
+					alcool-=10; bois+=500;
 				}
-				else{
-					System.out.println("Echange impossible");
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
+			}
+			if(i==3){
+				if(nourriture>=10){
+					nourriture-=10; bois+=40;
 				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
+			}
+		}
+		else if(s.equals("n")){
+			if(i==1){
+				if(or>=50){
+					or-=50; nourriture+=100;
+				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
+			}
+			if(i==2){
+				if(alcool>=10){
+					alcool-=10; nourriture+=100;
+				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
+			}
+			if(i==3){
+				if(bois>=100){
+					bois-=100; nourriture+=25;
+				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
+			}
+		}
+		else if(s.equals("a")){
+			if(i==1){
+				if(bois>=500){
+					bois-=500; alcool+=10;
+				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
+			}
+			if(i==2){
+				if(or>=200){
+					or+=200; alcool+=10;
+				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
+			}
+			if(i==3){
+				if(nourriture>=250){
+					nourriture-=250; alcool+=10;
+				}
+				else System.out.println("\n\t ECHANGE IMPOSSIBLE !");
 			}
 		}
 	}
@@ -163,10 +182,16 @@ public class Ville {
 	public void calculJournee() {
 		int deltaNourriture=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20;
 		if (deltaNourriture>0 && nourriture<stockNourriture && nourriture+deltaNourriture>stockNourriture) nourriture=stockNourriture;
-		else if (nourriture+deltaNourriture<=stockNourriture) nourriture+=deltaNourriture;
+		else if (nourriture+deltaNourriture<=stockNourriture){
+			nourriture+=deltaNourriture;
+		}
+		alcool+=nombreBatiments.get(TypeBatiment.TAVERNE)*5;
+		if(alcool >= nombreBatiments.get(TypeBatiment.MAISON)*2){
+			alcool-=nombreBatiments.get(TypeBatiment.MAISON)*2;
+			humeur+=alcool*2;
+		}
 		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
 		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
-		alcool+=nombreBatiments.get(TypeBatiment.TAVERNE)*20;
 		nbJours+=1;
 	}
 	
@@ -174,7 +199,7 @@ public class Ville {
 		boolean res=false;
 		if(humeurRequise-humeur>=100) {
 			res=true;
-			System.out.println("\n\n\t\t\tVOUS EST DESAVOUE !!! GAME OVER...");
+			System.out.println("\n\n\t\t\tVOUS ETES DESAVOUE !!! GAME OVER...");
 		}
 		if(nourriture<=-100) {
 			res=true;
@@ -235,7 +260,7 @@ public class Ville {
 		return "\n\n\n" + nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
 			   "Ressources :\n\tHumeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
 			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\t(" + s + (nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20) + " nourriture)\n\t" +
-			   				   "Alcool = " + alcool + "\t\t(+" + nombreBatiments.get(TypeBatiment.TAVERNE)*20 + " alcool)\n\t" +
+			   				   "Alcool = " + alcool + "\t\t(+" + nombreBatiments.get(TypeBatiment.TAVERNE)*5 + " alcool)\n\t" +
 							   "Or = " + or + "\t\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
 							   "Bois = " + bois + "\t\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n" +
 			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +

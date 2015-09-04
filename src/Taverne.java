@@ -2,7 +2,7 @@
 public class Taverne extends Batiment {
 	
 	public Taverne(){
-		super(100,100,5,0,0,0,0,0);
+		super(100,100,5,0,0,0,0,5);
 	}
 	
 	public String toString(){
