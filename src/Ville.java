@@ -179,6 +179,29 @@ public class Ville {
 		return res;
 	}
 	
+	public boolean revolte(){
+		boolean res=false;
+		if(humeurRequise-humeur>=75){
+			res=true;
+			if(nombreBatiments.get(TypeBatiment.CHAMPS)!=0){
+				deleteBatiment(TypeBatiment.CHAMPS);
+				System.out.println("\n\n\t\t\t VOS CITOYENS NE SONT PAS CONTENTS !!!!! ILS ATTAQUENT VOS CHAMPS (Vous avez perdu 1 champ");}
+			else{
+				System.out.println("\n\n\t\t\t VOS CITOYENS NE SONT PAS CONTENTS !!!!!");
+			}
+		}
+		if(nourriture<=-80){
+			res=true;
+			if(nombreBatiments.get(TypeBatiment.ENTREPOT)!=0){
+				nombreBatiments.put(TypeBatiment.ENTREPOT, nombreBatiments.get(TypeBatiment.ENTREPOT)-1);
+				System.out.println("\n\n\t\t\t VOS CITOYENS ONT FAIM !!! ILS ATTAQUENT VOS ENTREPOTS (Vous avez perdu 1 entrepot)");}
+			else{
+				System.out.println("\n\n\t\t\t VOS CITOYENS ONT FAIM !!!");
+			}
+		}
+		return res;
+	}
+	
 	
 	public int getOr(){
 		return this.or;
@@ -198,17 +221,12 @@ public class Ville {
 	
 	public String toString() {
 		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
-<<<<<<< HEAD
-			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
-								"Humeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
-								"Or = " + or + "\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
-								"Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n" +
-=======
+
 			   "Ressources :\n\tHumeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
-			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\n\t" + "\t(+" + nombreBatiments.get(TypeBatiment.CHAMPS)*50 + ", -" + nombreBatiments.get(TypeBatiment.MAISON)*20 + " nourriture)\n\t" +
+			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\t\t(+" + nombreBatiments.get(TypeBatiment.CHAMPS)*50 + ", -" + nombreBatiments.get(TypeBatiment.MAISON)*20 + " nourriture)\n\t" +
 							   "Or = " + or + "\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
-							   "Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n\t" +
->>>>>>> cfb3cd0a1aa8c7a91bb5c953651b04552a08b451
+							   "Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n" +
+
 			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
 			   				   "Eglise(s) = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
 			   				   "Entrepôt(s) = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +

@@ -42,6 +42,7 @@ public class Main {
 			}
 			if(repUtilisateur.equals("j")){
 				jeu.calculJournee();
+				jeu.revolte();
 				System.out.println(jeu);
 			}
 			if(repUtilisateur.equals("d")){
