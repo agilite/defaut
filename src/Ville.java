@@ -1,8 +1,5 @@
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import sun.misc.Cleaner;
 
 
 public class Ville {
@@ -64,18 +61,32 @@ public class Ville {
 	}
 	
 	public void deleteBatiment(TypeBatiment type){
-		if(nombreBatiments.get(type)>=1){
+		if(nombreBatiments.get(type)>0){
+			boolean test=true;
 			switch(type){
-			case MAISON : 
-				habitants-=Batiment.getLocataires(); break;
-			case EGLISE : 
+			case MAISON :
+				new Maison();
+				if (habitantsDispo<5) {
+					System.out.println("Vous ne pouvez pas détruire de maison, sous peine de manquer de main d'oeuvre !");
+					test=false;
+				}
+				else {
+					habitants-=Batiment.getLocataires();
+					habitantsDispo-=Batiment.getLocataires();
+					humeurRequise-=10;
+				}
+				break;
+			case EGLISE :
+				new Eglise();
 				humeur-=Batiment.getHumeur(); break;
-			case ENTREPOT : 
+			case ENTREPOT :
+				new Entrepot();
 				stockNourriture-=200; break;
 			}
-			
-			habitantsDispo+=Batiment.getHabNecessaire();
-			nombreBatiments.put(type, nombreBatiments.get(type)-1);
+			if (test) {
+				habitantsDispo+=Batiment.getHabNecessaire();
+				nombreBatiments.put(type, nombreBatiments.get(type)-1);
+			}
 		}
 		else{
 			System.out.println("Aucun bâtiment n'a encore ete cree");
@@ -152,7 +163,7 @@ public class Ville {
 		else if (nourriture+deltaNourriture<=stockNourriture) nourriture+=deltaNourriture;
 		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
 		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
-		nbJours+=1;
+		nbJours++;
 	}
 	
 	public boolean isOver() {
