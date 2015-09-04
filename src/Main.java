@@ -26,7 +26,8 @@ public class Main {
 						   		   "Pour construire un entrepot, appuyez sur e \t(demande: 200 bois, 200 or, 5 habitants) \t(augmentation du stock: 200 nourriture)\n" +
 						   		   "Pour construire une eglise, appuyez sur g \t(demande: 200 bois, 50 or, 10 habitants)\t(augmentation humeur: 100)\n" +
 						   		   "Pour construire un champ, appuyez sur p \t(demande: 25 bois, 50 or, 10 habitants) \t(récolte journalière: 50 nourriture)\n" +
-								   "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants) \t(récolte journalière: 100 bois)");
+								   "Pour construire une scierie, appuyez sur s \t(demande: 50 bois, 50 or, 10 habitants) \t(récolte journalière: 100 bois)\n" +
+								   "Pour construire une taverne, appuyez sur t \t(demande: 100 bois, 100 or, 5 habitants) \t(récolte journalière: 20 alcool)");
 
 				repUtilisateur= sc.nextLine();
 				
@@ -37,6 +38,7 @@ public class Main {
 				case "g" : jeu.addBatiment(TypeBatiment.EGLISE); break;
 				case "p" : jeu.addBatiment(TypeBatiment.CHAMPS); break;
 				case "s" : jeu.addBatiment(TypeBatiment.SCIERIE); break;
+				case "t" : jeu.addBatiment(TypeBatiment.TAVERNE); break;
 				}
 				System.out.println(jeu);
 			}
@@ -50,7 +52,8 @@ public class Main {
 						   		   "Pour detruire un entrepot, appuyez sur e\n" +
 						   		   "Pour detruire une eglise, appuyez sur g\n" +
 						   		   "Pour detruire un champ, appuyez sur p\n" +
-								   "Pour detruire une scierie, appuyez sur s");
+								   "Pour detruire une scierie, appuyez sur s\n" +
+								   "Pour detruire une taverne, appuyez sur t");
 				repUtilisateur= sc.nextLine();
 				switch (repUtilisateur){
 				case "m" : jeu.deleteBatiment(TypeBatiment.MAISON); break;
@@ -59,6 +62,7 @@ public class Main {
 				case "g" : jeu.deleteBatiment(TypeBatiment.EGLISE); break;
 				case "p" : jeu.deleteBatiment(TypeBatiment.CHAMPS); break;
 				case "s" : jeu.deleteBatiment(TypeBatiment.SCIERIE); break;
+				case "t" : jeu.deleteBatiment(TypeBatiment.TAVERNE); break;
 				}
 				System.out.println(jeu);
 			}

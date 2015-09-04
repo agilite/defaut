@@ -9,6 +9,7 @@ public class Ville {
 	private int habitantsDispo = 0;
 	private int bois = 500;
 	private int nourriture = 200;
+	private int alcool = 0;
 	private int or = 600;
 	private int humeur = 0;
 	private int humeurRequise = 0;
@@ -23,6 +24,7 @@ public class Ville {
 		nombreBatiments.put(TypeBatiment.MAISON, 0);
 		nombreBatiments.put(TypeBatiment.MINE, 0);
 		nombreBatiments.put(TypeBatiment.SCIERIE, 0);
+		nombreBatiments.put(TypeBatiment.TAVERNE, 0);
 		
 	}
 	public Ville(String nom) {
@@ -38,6 +40,7 @@ public class Ville {
 		case ENTREPOT: new Entrepot(); break;
 		case MINE: new Mine(); break;
 		case SCIERIE: new Scierie(); break;
+		case TAVERNE: new Taverne(); break;
 		}
 		if(bois >= Batiment.getRessourceNecessaire() && or >= Batiment.getOrNecessaire() && habitantsDispo >= Batiment.getHabNecessaire()){
 			nombreBatiments.put(type, nombreBatiments.get(type)+1);
@@ -163,6 +166,7 @@ public class Ville {
 		else if (nourriture+deltaNourriture<=stockNourriture) nourriture+=deltaNourriture;
 		bois+=nombreBatiments.get(TypeBatiment.SCIERIE)*100;
 		or+=nombreBatiments.get(TypeBatiment.MINE)*50;
+		alcool+=nombreBatiments.get(TypeBatiment.TAVERNE)*20;
 		nbJours+=1;
 	}
 	
@@ -192,6 +196,10 @@ public class Ville {
 		return this.nourriture;
 	}
 	
+	public int getAlcool(){
+		return this.alcool;
+	}
+	
 	public int getNbJours(){
 		return this.nbJours;
 	}
@@ -201,17 +209,19 @@ public class Ville {
 		if(nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20>=0){
 			s="+";
 		}
-		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
+		return "\n\n\n" + nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
 			   "Ressources :\n\tHumeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
 			   				   "Nourriture = " + nourriture + "/" + stockNourriture + "\t(" + s + (nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20) + " nourriture)\n\t" +
+			   				   "Alcool = " + alcool + "\t\t(+" + nombreBatiments.get(TypeBatiment.TAVERNE)*20 + " alcool)\n\t" +
 							   "Or = " + or + "\t\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
-							   "Bois = " + bois + "\t\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n\t" +
+							   "Bois = " + bois + "\t\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n" +
 			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
 			   				   "Eglise(s) = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
 			   				   "Entrepôt(s) = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +
 			   				   "Maison(s) = " + nombreBatiments.get(TypeBatiment.MAISON) + "\n\t" +
 			   				   "Scierie(s) = " + nombreBatiments.get(TypeBatiment.SCIERIE) + "\n\t" +
-			   				   "Mine(s) = " + nombreBatiments.get(TypeBatiment.MINE);
+			   				   "Mine(s) = " + nombreBatiments.get(TypeBatiment.MINE) + "\n\t" +
+							   "Taverne(s) = " + nombreBatiments.get(TypeBatiment.TAVERNE);
 	}
 	
 	

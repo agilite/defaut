@@ -2,12 +2,8 @@
 public class Maison extends Batiment {
 	
 	public Maison(){
-		super(25,25,0,0,0,0,0);
+		super(25,25,0,0,0,0,0,0);
 		locataires=5;
-	}
-	
-	public String toString(){
-		return "type: Champs\n ressources necessaires:\n\t bois: 25, or: 25 \n\t production journaliere:\n\t or: 10";
 	}
 	
 	public void afficher(){

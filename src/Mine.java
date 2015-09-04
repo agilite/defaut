@@ -2,11 +2,7 @@
 public class Mine extends Batiment {
 	
 	public Mine(){
-		super(100,50,10,0,50,0,0);
-	}
-	
-	public String toString(){
-		return "type: Champs\n ressources necessaires:\n\t bois: 100, or: 50, habitants: 20 \n\t production journaliere:\n\t or: 50";
+		super(100,50,10,0,50,0,0,0);
 	}
 	
 	public void afficher(){

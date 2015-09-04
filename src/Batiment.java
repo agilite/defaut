@@ -9,14 +9,16 @@ public abstract class Batiment {
 	private static int recolteOr;
 	private static int recolteNourri;
 	private static int recolteRessource;
+	private static int recolteAlcool;
 	
-	public Batiment(int res, int or, int hab, int h, int rOr, int rNourri, int rRes){
+	public Batiment(int res, int or, int hab, int h, int rOr, int rNourri, int rRes, int rA){
 		ressourceNecessaire=res;
 		orNecessaire=or;
 		habNecessaire=hab;
 		humeur=h;
 		recolteOr=rOr;
 		recolteNourri=rNourri;
+		recolteAlcool=rA;
 	}
 	
 	
@@ -45,6 +47,9 @@ public abstract class Batiment {
 	
 	public static int getRecolteNourri(){
 		return recolteNourri;
+	}
+	public static int getRecolteAlcool(){
+		return recolteAlcool;
 	}
 	
 	public static int getLocataires() {
