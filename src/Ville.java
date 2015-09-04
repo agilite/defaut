@@ -193,7 +193,7 @@ public class Ville {
 	public void calculJournee() {
 		Random r = new Random();
 		int rand = r.nextInt(100);
-		int deltaNourriture=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*20;
+		int deltaNourriture=nombreBatiments.get(TypeBatiment.CHAMPS)*50-nombreBatiments.get(TypeBatiment.MAISON)*10;
 		if (deltaNourriture>0 && nourriture<stockNourriture && nourriture+deltaNourriture>stockNourriture) nourriture=stockNourriture;
 		else if (nourriture+deltaNourriture<=stockNourriture){
 			nourriture+=deltaNourriture;
