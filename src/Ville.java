@@ -54,6 +54,8 @@ public class Ville {
 				humeur+=Batiment.getHumeur(); break;
 			case ENTREPOT : 
 				stockNourriture+=200; break;
+			default:
+				break;
 			}
 			habitantsDispo-=Batiment.getHabNecessaire();
 			bois-=Batiment.getRessourceNecessaire();
