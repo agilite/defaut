@@ -10,9 +10,9 @@ public class Ville {
 	private String nom = "My little town";
 	private int habitants = 0;
 	private int habitantsDispo = 0;
-	private int bois = 200;
+	private int bois = 500;
 	private int nourriture = 200;
-	private int or = 300;
+	private int or = 600;
 	private int humeur = 0;
 	private int humeurRequise = 0;
 	private int stockNourriture = 1000; 
@@ -189,8 +189,8 @@ public class Ville {
 		return nom + " (" + habitantsDispo + " habitants disponibles/" + habitants + " habitants) \t\t(nombre de jours "+this.getNbJours()+")\n" +
 			   "Ressources :\n\tNourriture = " + nourriture + "/" + stockNourriture + "\n\t" +
 								"Humeur = " + humeur + "/" + humeurRequise + " requis\n\t" +
-								"Or = " + or + "\n\t" + 
-								"Bois = " + bois + "\n" +
+								"Or = " + or + "\t(+" + nombreBatiments.get(TypeBatiment.MINE)*50 + " or)\n\t" +
+								"Bois = " + bois + "\t(+" + nombreBatiments.get(TypeBatiment.SCIERIE)*100 + " bois)\n\t" +
 			   "Bâtiments :\n\tChamp(s) = " + nombreBatiments.get(TypeBatiment.CHAMPS) + "\n\t" +
 			   				   "Eglise(s) = " + nombreBatiments.get(TypeBatiment.EGLISE) + "\n\t" +
 			   				   "Entrepôt(s) = " + nombreBatiments.get(TypeBatiment.ENTREPOT) + "\n\t" +
