@@ -57,7 +57,7 @@ public class Main {
 				case "o" : jeu.deleteBatiment(TypeBatiment.MINE); break;
 				case "e" : jeu.deleteBatiment(TypeBatiment.ENTREPOT); break;
 				case "g" : jeu.deleteBatiment(TypeBatiment.EGLISE); break;
-				case "c" : jeu.deleteBatiment(TypeBatiment.CHAMPS); break;
+				case "p" : jeu.deleteBatiment(TypeBatiment.CHAMPS); break;
 				case "s" : jeu.deleteBatiment(TypeBatiment.SCIERIE); break;
 				}
 				System.out.println(jeu);
