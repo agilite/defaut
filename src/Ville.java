@@ -183,6 +183,29 @@ public class Ville {
 		return res;
 	}
 	
+	public boolean revolte(){
+		boolean res=false;
+		if(humeurRequise-humeur>=75){
+			res=true;
+			if(nombreBatiments.get(TypeBatiment.CHAMPS)!=0){
+				deleteBatiment(TypeBatiment.CHAMPS);
+				System.out.println("\n\n\t\t\t VOS CITOYENS NE SONT PAS CONTENTS !!!!! ILS ATTAQUENT VOS CHAMPS (Vous avez perdu 1 champ");}
+			else{
+				System.out.println("\n\n\t\t\t VOS CITOYENS NE SONT PAS CONTENTS !!!!!");
+			}
+		}
+		if(nourriture<=-80){
+			res=true;
+			if(nombreBatiments.get(TypeBatiment.ENTREPOT)!=0){
+				nombreBatiments.put(TypeBatiment.ENTREPOT, nombreBatiments.get(TypeBatiment.ENTREPOT)-1);
+				System.out.println("\n\n\t\t\t VOS CITOYENS ONT FAIM !!! ILS ATTAQUENT VOS ENTREPOTS (Vous avez perdu 1 entrepot)");}
+			else{
+				System.out.println("\n\n\t\t\t VOS CITOYENS ONT FAIM !!!");
+			}
+		}
+		return res;
+	}
+	
 	
 	public int getOr(){
 		return this.or;
